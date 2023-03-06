@@ -13,10 +13,18 @@ use App\Models\Listing;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// all listings 
 Route::get('/', function () {
     return view('Listings', [
         'heading' => 'latest Listings',
         'listings' => Listing::all()
     ]);
+});
+
+// single listing
+Route::get('/listings/{listing}', function (Listing $listing ) {
+    return view('listing', [
+        'listing' => $listing
+    ]);
+    
 });
